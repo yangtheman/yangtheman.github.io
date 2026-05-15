@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yang — Staff Engineer &amp; Builder</title>
+    <meta
+      name="description"
+      content="Yang is a full-stack staff engineer (backend at heart) and builder based in San Jose. Currently at Ketch. Previously founding engineer at July AI. Co-founder of Picpler and Venturi Media."
+    />
+    <meta name="theme-color" content="#F4F0E8" />
+    <meta name="author" content="Yang" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yangtheman.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yangtheman.com/" />
+    <meta property="og:title" content="Yang — Staff Engineer &amp; Builder" />
+    <meta
+      property="og:description"
+      content="Full-stack engineer with a backend soul. Builder, two-time founder, currently at Ketch. Based in San Jose."
+    />
+    <meta property="og:image" content="https://yangtheman.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Yang — Staff Engineer &amp; Builder"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://yangtheman.com/" />
+    <meta name="twitter:title" content="Yang — Staff Engineer &amp; Builder" />
+    <meta
+      name="twitter:description"
+      content="Full-stack engineer with a backend soul. Builder, two-time founder, currently at Ketch. Based in San Jose."
+    />
+    <meta name="twitter:image" content="https://yangtheman.com/og.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Structured data: Person schema for search engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yang",
+        "url": "https://yangtheman.com",
+        "jobTitle": "Staff Engineer",
+        "worksFor": { "@type": "Organization", "name": "Ketch" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "San Jose",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://blog.yangtheman.com",
+          "https://github.com/yangtheman"
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600;1,9..144,700&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #f4f0e8;
+        --paper: #fbf9f4;
+        --ink: #1c1c1a;
+        --ink-soft: #2d2d2a;
+        --muted: #6b6862;
+        --line: #d9d2c4;
+        --line-strong: #bfb6a3;
+        --accent: #c4471c;
+        --accent-soft: #e89b7a;
+
+        --font-display: "Fraunces", "Times New Roman", Georgia, serif;
+        --font-body: "Manrope", system-ui, -apple-system, sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+        --max-w: 1100px;
+        --pad-x: clamp(1.25rem, 4vw, 3rem);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #16140f;
+          --paper: #1c1a14;
+          --ink: #f2ede0;
+          --ink-soft: #dfd9c9;
+          --muted: #9a9385;
+          --line: #2e2a22;
+          --line-strong: #423d32;
+          --accent: #e89b7a;
+          --accent-soft: #c4471c;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 1.65;
+        letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* subtle paper grain */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.35;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0.12 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 2;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 var(--pad-x);
+      }
+
+      /* ── NAV ─────────────────────────────────── */
+      nav {
+        padding: 1.75rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 2rem;
+        border-bottom: 1px solid var(--line);
+        animation: fade-down 0.7s ease-out both;
+      }
+
+      nav .mark {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 600;
+        font-size: 1.4rem;
+        letter-spacing: -0.02em;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.75rem;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--ink);
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 1px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+      nav a:hover::after {
+        transform: scaleX(1);
+      }
+
+      @media (max-width: 600px) {
+        nav ul {
+          display: none;
+        }
+      }
+
+      /* ── HERO ────────────────────────────────── */
+      .hero {
+        padding: clamp(4rem, 12vh, 8rem) 0 clamp(4rem, 10vh, 7rem);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .hero .label {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        animation: fade-up 0.7s ease-out 0.1s both;
+      }
+
+      .hero .label::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--accent);
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        font-weight: 400;
+        font-size: clamp(3.5rem, 10vw, 7.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.035em;
+        color: var(--ink);
+        animation: fade-up 0.9s ease-out 0.2s both;
+      }
+
+      .hero h1 em {
+        font-style: italic;
+        font-weight: 500;
+        color: var(--accent);
+      }
+
+      .hero .tagline {
+        font-family: var(--font-display);
+        font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+        line-height: 1.45;
+        font-weight: 400;
+        color: var(--ink-soft);
+        max-width: 38ch;
+        animation: fade-up 0.9s ease-out 0.35s both;
+      }
+
+      .hero .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem 2.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        animation: fade-up 0.9s ease-out 0.5s both;
+      }
+
+      .hero .meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .hero .meta .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px rgba(196, 71, 28, 0.12);
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 4px rgba(196, 71, 28, 0.12);
+        }
+        50% {
+          box-shadow: 0 0 0 7px rgba(196, 71, 28, 0.04);
+        }
+      }
+
+      /* ── SECTIONS ────────────────────────────── */
+      section {
+        padding: clamp(3rem, 8vh, 5.5rem) 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+        align-items: baseline;
+      }
+
+      .section-num {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+
+      .section-title {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+      }
+
+      .section-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .section-body {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 2rem;
+      }
+
+      .section-body > :first-child:not(.full) {
+        /* spacer for alignment with section-head */
+      }
+
+      @media (max-width: 720px) {
+        .section-head,
+        .section-body {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+      }
+
+      /* ── ABOUT ───────────────────────────────── */
+      .about-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        max-width: 62ch;
+        color: var(--ink-soft);
+      }
+
+      .about-text p + p {
+        margin-top: 1.1rem;
+      }
+
+      .about-text strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      /* ── WORK ────────────────────────────────── */
+      .work-list {
+        list-style: none;
+        max-width: 720px;
+      }
+
+      .work-item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem 2rem;
+        padding: 1.4rem 0;
+        border-bottom: 1px solid var(--line);
+        transition: padding 0.25s ease;
+      }
+
+      .work-item:hover {
+        padding-left: 0.75rem;
+      }
+
+      .work-item:last-child {
+        border-bottom: none;
+      }
+
+      .work-role {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: -0.015em;
+        color: var(--ink);
+      }
+
+      .work-role em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .work-company {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: var(--muted);
+        margin-top: 0.2rem;
+      }
+
+      .work-date {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        white-space: nowrap;
+        padding-top: 0.4rem;
+      }
+
+      /* ── PROJECTS ────────────────────────────── */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .project {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        padding: 1.5rem 1.5rem 1.75rem;
+        border-radius: 2px;
+        position: relative;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease;
+      }
+
+      .project:hover {
+        transform: translateY(-2px);
+        border-color: var(--line-strong);
+      }
+
+      .project-tag {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        margin-bottom: 0.9rem;
+      }
+
+      .project-name {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.4rem;
+      }
+
+      .project-name em {
+        font-style: italic;
+      }
+
+      .project-desc {
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .project-url {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-top: 1.1rem;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+      .project-url::after {
+        content: "→";
+        transition: transform 0.2s ease;
+      }
+      .project-url:hover {
+        color: var(--accent);
+      }
+      .project-url:hover::after {
+        transform: translateX(3px);
+      }
+
+      /* ── BEYOND ──────────────────────────────── */
+      .beyond {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 0.75rem;
+        max-width: 700px;
+      }
+
+      .chip {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        padding: 0.5rem 0.95rem;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        color: var(--ink-soft);
+        transition: all 0.2s ease;
+        cursor: default;
+      }
+
+      .chip:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      /* ── CONTACT ─────────────────────────────── */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        max-width: 720px;
+      }
+
+      .contact-link {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 1.25rem 1.4rem;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        text-decoration: none;
+        color: var(--ink);
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+        /* button reset so <button.contact-link> matches <a.contact-link> */
+        font: inherit;
+        text-align: left;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .contact-link.is-revealed {
+        border-color: var(--accent);
+      }
+      .contact-link.is-revealed::after {
+        content: "copied";
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .contact-link::after {
+        content: "→";
+        position: absolute;
+        top: 1.25rem;
+        right: 1.4rem;
+        font-family: var(--font-display);
+        transition: transform 0.25s ease;
+        color: var(--muted);
+      }
+
+      .contact-link:hover {
+        border-color: var(--accent);
+        background: var(--bg);
+      }
+
+      .contact-link:hover::after {
+        transform: translateX(4px);
+        color: var(--accent);
+      }
+
+      .contact-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+
+      .contact-value {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+
+      /* ── FOOTER ──────────────────────────────── */
+      footer {
+        padding: 3rem 0 4rem;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+      }
+
+      footer em {
+        font-family: var(--font-display);
+        font-style: italic;
+        text-transform: none;
+        letter-spacing: -0.01em;
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+      }
+
+      /* ── ANIMATIONS ──────────────────────────── */
+      @keyframes fade-up {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fade-down {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.7s ease-out,
+          transform 0.7s ease-out;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* selection */
+      ::selection {
+        background: var(--accent);
+        color: var(--paper);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav>
+        <div class="mark">Yang.</div>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li>
+            <a href="https://blog.yangtheman.com" target="_blank" rel="noopener"
+              >Writing</a
+            >
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <header class="hero">
+        <div class="label">Staff Engineer · Founder · San Jose, CA</div>
+        <h1>
+          Yang<!-- TODO: add last name here, e.g. "Yang <em>Park</em>" -->.
+        </h1>
+        <p class="tagline">
+          Full-stack engineer with a backend soul. I ship 0&nbsp;→&nbsp;1
+          products and the unglamorous infrastructure that keeps them honest.
+        </p>
+        <div class="meta">
+          <span><span class="dot"></span>Currently at Ketch</span>
+          <span>Founding engineer, July AI</span>
+          <span>Co-founder ×2 &nbsp;·&nbsp; Picpler, Venturi Media</span>
+        </div>
+      </header>
+
+      <!-- ── ABOUT ────────────────────────────── -->
+      <section id="about" class="reveal">
+        <div class="section-head">
+          <div class="section-num">01 / About</div>
+          <h2 class="section-title">
+            A full-stack engineer who likes to <em>build from zero</em>.
+          </h2>
+        </div>
+        <div class="section-body">
+          <div></div>
+          <div class="about-text">
+            <p>
+              I'm a <strong>Staff Engineer at Ketch</strong>, working on privacy
+              and data-governance infrastructure. Officially full-stack — I can
+              hold my own on the frontend when the work calls for it — but my
+              center of gravity sits firmly on the <strong>backend</strong>.
+              Systems, services, and the quiet plumbing are where I'm happiest.
+              Before this, I was the solo founding engineer at
+              <strong>July AI</strong>, where I built an AI safety red-teaming
+              and evaluation platform from a blank repo to a working product
+              used by an in-house research team.
+            </p>
+            <p>
+              My career has been more zigzag than ladder: network engineering,
+              product management, then several startup engineering seats at
+              Pebble, Enjoy, Charma, and Clockwise. Along the way I've
+              <strong>co-founded two companies</strong> — Picpler and Venturi
+              Media — and taken a few other 0&nbsp;→&nbsp;1 swings as a founding
+              engineer. The through-line is an entrepreneurial streak and a
+              stubborn interest in <strong>systems that scale</strong>,
+              <strong>developer experience</strong>, and the quiet plumbing —
+              auth, payments, pipelines, eval harnesses — that makes a product
+              feel solid.
+            </p>
+            <p>
+              These days I'm deep in Go, Rails, React, Postgres, and the long
+              tail of distributed systems patterns. Outside work, I tend to a
+              small Dokku VPS, a Raspberry Pi cluster of side projects, and a
+              citrus tree that is, against the odds, surviving San Jose.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── WORK ─────────────────────────────── -->
+      <section id="work" class="reveal">
+        <div class="section-head">
+          <div class="section-num">02 / Work</div>
+          <h2 class="section-title">Where I've <em>built</em>.</h2>
+        </div>
+        <div class="section-body">
+          <div></div>
+          <ul class="work-list">
+            <li class="work-item">
+              <div>
+                <div class="work-role">Backend Staff Engineer</div>
+                <div class="work-company">
+                  Ketch — privacy &amp; data governance
+                </div>
+              </div>
+              <div class="work-date">2026 — Present</div>
+            </li>
+            <li class="work-item">
+              <div>
+                <div class="work-role">Founding Engineer</div>
+                <div class="work-company">
+                  July AI — AI safety training &amp; evaluation
+                </div>
+              </div>
+              <div class="work-date">— 2026</div>
+            </li>
+            <li class="work-item">
+              <div>
+                <div class="work-role">Software Engineer</div>
+                <div class="work-company">
+                  Clockwise — calendar &amp; focus-time infra
+                </div>
+              </div>
+              <div class="work-date"><!-- TODO: dates --></div>
+            </li>
+            <li class="work-item">
+              <div>
+                <div class="work-role">Software Engineer</div>
+                <div class="work-company">Charma — manager-team workflows</div>
+              </div>
+              <div class="work-date"><!-- TODO: dates --></div>
+            </li>
+            <li class="work-item">
+              <div>
+                <div class="work-role">Software Engineer</div>
+                <div class="work-company">
+                  Enjoy Technology — mobile commerce
+                </div>
+              </div>
+              <div class="work-date"><!-- TODO: dates --></div>
+            </li>
+            <li class="work-item">
+              <div>
+                <div class="work-role">Software Engineer</div>
+                <div class="work-company">
+                  Pebble Technology — smartwatch platform
+                </div>
+              </div>
+              <div class="work-date"><!-- TODO: dates --></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── PROJECTS ─────────────────────────── -->
+      <section id="projects" class="reveal">
+        <div class="section-head">
+          <div class="section-num">03 / Projects</div>
+          <h2 class="section-title">Things I've <em>shipped</em>.</h2>
+        </div>
+        <div class="section-body">
+          <div></div>
+          <div class="projects">
+            <div class="project">
+              <div class="project-tag">Web app</div>
+              <div class="project-name">Listorio</div>
+              <p class="project-desc">
+                A Rails app for curated lists. Make a list of anything —
+                favorite gems, kid-friendly bike trails, recipes worth trying —
+                and share it with anyone.
+              </p>
+              <a
+                class="project-url"
+                href="https://listorio.com"
+                target="_blank"
+                rel="noopener"
+                >listorio.com</a
+              >
+            </div>
+            <div class="project">
+              <div class="project-tag">Web app</div>
+              <div class="project-name">Perinzen</div>
+              <p class="project-desc">
+                A personal inventory manager. Photograph and catalog your
+                belongings — useful for insurance, resale, or just knowing
+                what's in the garage.
+              </p>
+              <a
+                class="project-url"
+                href="https://perinzen.com"
+                target="_blank"
+                rel="noopener"
+                >perinzen.com</a
+              >
+            </div>
+            <div class="project">
+              <div class="project-tag">iOS app</div>
+              <div class="project-name">Speak with Wallet</div>
+              <p class="project-desc">
+                An iOS app for voting with your dollars. Find businesses worth
+                supporting and ones worth avoiding, around you.
+              </p>
+              <a
+                class="project-url"
+                href="https://speakwithwallet.com"
+                target="_blank"
+                rel="noopener"
+                >speakwithwallet.com</a
+              >
+            </div>
+            <div class="project">
+              <div class="project-tag">AI app</div>
+              <div class="project-name">Intimio</div>
+              <p class="project-desc">
+                An AI relationship coach in your pocket — personalized guidance
+                for communication and deeper connection.
+              </p>
+              <a
+                class="project-url"
+                href="https://intimio.app"
+                target="_blank"
+                rel="noopener"
+                >intimio.app</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── BEYOND ───────────────────────────── -->
+      <section id="beyond" class="reveal">
+        <div class="section-head">
+          <div class="section-num">04 / Beyond</div>
+          <h2 class="section-title">Off the <em>clock</em>.</h2>
+        </div>
+        <div class="section-body">
+          <div></div>
+          <div>
+            <p class="about-text" style="margin-bottom: 1.5rem">
+              When I'm not in a terminal: I bake (poorly at first, then
+              surprisingly well), play more PC games than I'll admit, and chase
+              yellow balls around tennis courts and frisbees across fields.
+            </p>
+            <div class="beyond">
+              <span class="chip">baking</span>
+              <span class="chip">PC gaming</span>
+              <span class="chip">tennis</span>
+              <span class="chip">golf</span>
+              <span class="chip">ultimate frisbee</span>
+              <span class="chip">home infra</span>
+              <span class="chip">distributed systems</span>
+              <span class="chip">AI safety</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CONTACT ──────────────────────────── -->
+      <section id="contact" class="reveal">
+        <div class="section-head">
+          <div class="section-num">05 / Contact</div>
+          <h2 class="section-title">Say <em>hello</em>.</h2>
+        </div>
+        <div class="section-body">
+          <div></div>
+          <div>
+            <p class="about-text" style="margin-bottom: 1.75rem">
+              Best way to reach me is email. I'm not on most social platforms,
+              but I do show up on GitHub.
+            </p>
+            <div class="contact-grid">
+              <!--
+              EMAIL: the address is base64-encoded so scrapers won't find it in the raw HTML.
+              To set yours: run `btoa("you@yourdomain.com")` in your browser console,
+              then paste the result into the data-e attribute below.
+              Current placeholder ("you@example.com") encodes to: eW91QGV4YW1wbGUuY29t
+            -->
+              <button
+                class="contact-link"
+                id="email-btn"
+                type="button"
+                data-e="eWFuZ0B5YW5ndGhlbWFuLmNvbQ=="
+                aria-label="Reveal email address"
+              >
+                <span class="contact-label">Email</span>
+                <span class="contact-value" id="email-text"
+                  >click to reveal</span
+                >
+              </button>
+              <!-- TODO: replace with your GitHub URL — assumed @yangtheman based on your other properties -->
+              <a
+                class="contact-link"
+                href="https://github.com/yangtheman"
+                target="_blank"
+                rel="noopener me"
+              >
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">@yangtheman</span>
+              </a>
+              <!-- TODO: replace with your LinkedIn URL -->
+              <a
+                class="contact-link"
+                href="https://www.linkedin.com/in/yangchung"
+                target="_blank"
+                rel="noopener me"
+              >
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">/in/yangchung</span>
+              </a>
+              <a
+                class="contact-link"
+                href="https://blog.yangtheman.com"
+                target="_blank"
+                rel="noopener me"
+              >
+                <span class="contact-label">Writing</span>
+                <span class="contact-value">blog.yangtheman.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>© <span id="year"></span> &nbsp;·&nbsp; Yang</div>
+        <em>Built quietly in San Jose.</em>
+      </footer>
+    </div>
+
+    <script>
+      // current year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // simple reveal-on-scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // click-to-reveal email — address is base64-encoded in data-e
+      // so it never appears in the raw HTML source, blocking most scrapers
+      const emailBtn = document.getElementById("email-btn");
+      if (emailBtn) {
+        emailBtn.addEventListener("click", () => {
+          const email = atob(emailBtn.dataset.e);
+          const valueEl = document.getElementById("email-text");
+          valueEl.textContent = email;
+          emailBtn.classList.add("is-revealed");
+
+          // try clipboard copy, then open mail client
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(email).catch(() => {});
+          }
+          window.location.href = "mailto:" + email;
+        });
+      }
+    </script>
+  </body>
+</html>
